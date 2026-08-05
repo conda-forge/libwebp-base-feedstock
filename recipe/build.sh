@@ -1,7 +1,9 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* .
 set -ex
 
-cmake -G Ninja -S . -B build \
+cmake ${CMAKE_ARGS} -G Ninja -S . -B build \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DBUILD_SHARED_LIBS=ON \
